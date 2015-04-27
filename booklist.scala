@@ -1,4 +1,4 @@
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.MutableList
 import scala.util.Try
 import scala.io.Source
 
@@ -10,9 +10,10 @@ case class Book(title : String, author : String, year : Int)
 // Your job is to replace all ??? with your own code.
 
 class BookList {
-   var list = ListBuffer[Book]()
+   var list = MutableList[Book]()
 
    def addBook(book : Book) : Unit = {
+       list += book
       // write code to add the book to 'list'.
       // hint: Use the list add (+=) method
    }
@@ -26,24 +27,24 @@ class BookList {
       // you should also show how to use the method in your main
    }
 
-   def getTitlesByAuthor(author : String) : ListBuffer[String] = {
-      val byAuthorList = ListBuffer[String]()
+   def getTitlesByAuthor(author : String) : MutableList[String] = {
+      val byAuthorList = MutableList[String]()
       // return a list of all titles that are written by author
 
 
       byAuthorList
    }
 
-   def getTitlesContaining(substring : String) : ListBuffer[String] = {
-      val titles = ListBuffer[String]()
+   def getTitlesContaining(substring : String) : MutableList[String] = {
+      val titles = MutableList[String]()
       // return a list of all titles that contain a substring
 
       titles
    }
 
-   def getBooksBetweenYears(firstYear : Int, lastYear : Int) : ListBuffer[Book] = {
+   def getBooksBetweenYears(firstYear : Int, lastYear : Int) : MutableList[Book] = {
      
-      val betweenYearList = ListBuffer[Book]()
+      val betweenYearList = MutableList[Book]()
       // get all books between two years
 
 
@@ -72,3 +73,4 @@ class BookList {
       books.list foreach { n => list += n }
    }
 }
+
